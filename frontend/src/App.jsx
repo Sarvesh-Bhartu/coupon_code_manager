@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Coupon from './pages/Coupon';
 import AdminDashboard from './pages/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   return (
@@ -22,7 +23,14 @@ function App() {
             </ProtectedRoute>
           } />
 
-          {/* Admin Route */}
+          {/* Admin Routes */}
+          <Route path="/admin/dashboard" element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          } />
+
+          {/* Legacy Admin Route (Fallback) */}
           <Route path="/admin/:adminId" element={<AdminDashboard />} />
 
           {/* Default Redirect */}

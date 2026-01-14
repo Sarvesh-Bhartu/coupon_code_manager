@@ -9,23 +9,38 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     // Set default axios header
-    if (token) {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    }
+    useEffect(() => {
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        } else {
+            delete axios.defaults.headers.common['Authorization'];
+        }
+    }, [token]);
 
     useEffect(() => {
         const fetchUser = async () => {
-            if (token) {
-                try {
-                    const res = await axios.get('http://localhost:5000/api/auth/me');
-                    setUser(res.data);
-                } catch (err) {
-                    console.error('Auth Check Failed', err);
-                    logout();
-                }
+            if (!token) {
+                setLoading(false);
+                return;
             }
-            setLoading(false);
+
+            try {
+                // Explicitly passing header to ensure it's there for this request
+                const config = {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                };
+                const res = await axios.get('http://localhost:5000/api/auth/me', config);
+                setUser(res.data);
+            } catch (err) {
+                console.error('Auth Check Failed', err);
+                logout();
+            } finally {
+                setLoading(false);
+            }
         };
+
         fetchUser();
     }, [token]);
 

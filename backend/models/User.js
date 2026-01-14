@@ -22,8 +22,7 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     discount: {
-        type: Number,
-        enum: [10, 20, 30],
+        type: String, // Changed from Number to String to support offer codes
         required: true
     },
     status: {
