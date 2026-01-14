@@ -40,6 +40,7 @@ const Coupon = () => {
             <div className="coupon-content-wrapper" style={{ zIndex: 10 }}>
 
                 {/* Left Side: Branding */}
+                {/* Left Side: Branding */}
                 <div className="coupon-left-section">
                     <div style={{ marginBottom: '2rem' }}>
                         {/* Glass container */}
@@ -56,14 +57,15 @@ const Coupon = () => {
                     </div>
 
                     <h1 className="text-gradient coupon-headline">
-                        Repair. Fly.<br />Create.
+                        Repair, Fly,<br />Create.
                     </h1>
                     <p className="coupon-subtext">
                         Experience premium drone care with <strong>DroneECareExpert</strong>.
                         We ensure your gear is always ready for your next masterpiece.
                     </p>
 
-                    <div className="action-buttons" style={{ display: 'flex', gap: '1rem' }}>
+                    {/* Desktop Buttons (Hidden on Mobile) */}
+                    <div className="action-buttons desktop-only-buttons" style={{ display: 'flex', gap: '1rem' }}>
                         <a href="https://www.droneecareexpert.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', flex: 1 }}>
                             <button className="btn">Visit Website</button>
                         </a>
@@ -138,15 +140,22 @@ const Coupon = () => {
                             <span>Lack of Physical card but presence of Coupon code will lead to standard 10% discount.</span>
                         </div>
                     </div>
+
+                    {/* Mobile Buttons (Visible ONLY on Mobile via CSS) */}
+                    <div className="action-buttons mobile-only-buttons" style={{ display: 'none', gap: '1rem', marginTop: '2rem' }}>
+                        <a href="https://www.droneecareexpert.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', width: '100%' }}>
+                            <button className="btn">Visit Website</button>
+                        </a>
+                        <button onClick={logout} className="btn-outline" style={{ width: '100%', borderColor: 'rgba(255,255,255,0.2)' }}>
+                            Logout
+                        </button>
+                    </div>
                 </div>
 
             </div>
 
-            {/* Mobile Scroll Indicator */}
-            <div className="scroll-indicator" style={{ opacity: showScroll ? 1 : 0 }}>
-                <span className="scroll-arrow">↓</span>
-                <p>Scroll down to view discount code</p>
-            </div>
+            {/* Mobile Scroll Indicator (Removed) */}
+            <div className="scroll-indicator" style={{ display: 'none' }}></div>
         </div>
     );
 };
