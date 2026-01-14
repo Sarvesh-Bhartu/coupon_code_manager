@@ -86,7 +86,7 @@ const AdminDashboard = () => {
                 <div className="admin-header" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                     <div className="admin-header-left">
                         <div style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', backdropFilter: 'blur(5px)' }}>
-                            <img src="/src/assets/logo.png" alt="Logo" style={{ height: '32px' }} />
+                            <img src="../src/assets/logo.png" alt="Logo" style={{ height: '32px' }} />
                         </div>
                         <div>
                             <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800', color: 'white' }}>Drone E Care Admin</h1>
