@@ -31,7 +31,8 @@ export const AuthProvider = ({ children }) => {
                         Authorization: `Bearer ${token}`
                     }
                 };
-                const res = await axios.get('http://localhost:5000/api/auth/me', config);
+                const API_URL = import.meta.env.VITE_API_URL;
+                const res = await axios.get(`${API_URL}/api/auth/me`, config);
                 setUser(res.data);
             } catch (err) {
                 console.error('Auth Check Failed', err);
