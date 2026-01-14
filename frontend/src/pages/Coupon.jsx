@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import logo from '../assets/logo.png';
+//import logo from '../assets/logo.png';
 
 const Coupon = () => {
     const { user, logout } = useContext(AuthContext);
@@ -51,7 +51,7 @@ const Coupon = () => {
                             backdropFilter: 'blur(10px)',
                             border: '1px solid rgba(255,255,255,0.1)'
                         }}>
-                            <img src={logo} alt="Drone E Care Expert" style={{ height: '50px', display: 'block' }} />
+                            <img src="/logo.png" alt="Drone E Care Expert" style={{ height: '50px', display: 'block' }} />
                         </div>
                     </div>
 
