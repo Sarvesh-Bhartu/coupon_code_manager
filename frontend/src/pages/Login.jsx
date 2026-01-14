@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext';
-import logo from '../assets/logo.png';
+// import logo from '../assets/logo.png';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -53,7 +53,7 @@ const Login = () => {
                         marginBottom: '1.5rem',
                         backdropFilter: 'blur(10px)'
                     }}>
-                        <img src={logo} alt="Flowgenix Logo" style={{ height: '50px', display: 'block' }} />
+                        <img src="/logo.png" alt="Flowgenix Logo" style={{ height: '50px', display: 'block' }} />
                     </div>
 
                     <h2 style={{

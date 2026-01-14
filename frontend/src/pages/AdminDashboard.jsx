@@ -23,9 +23,10 @@ const AdminDashboard = () => {
 
     const fetchUsers = async () => {
         try {
-            let url = 'http://localhost:5000/api/admin/users';
+            const API_URL = import.meta.env.VITE_API_URL;
+            let url = `${API_URL}/api/admin/users`;
             if (adminId) {
-                url = `http://localhost:5000/api/admin/${adminId}/users`;
+                url = `${API_URL}/api/admin/${adminId}/users`;
             }
             const res = await axios.get(url);
             setUsers(res.data);
@@ -56,9 +57,10 @@ const AdminDashboard = () => {
         if (!selectedUser) return;
 
         try {
-            let url = `http://localhost:5000/api/admin/mark/${selectedUser._id}`;
+            const API_URL = import.meta.env.VITE_API_URL;
+            let url = `${API_URL}/api/admin/mark/${selectedUser._id}`;
             if (adminId) {
-                url = `http://localhost:5000/api/admin/${adminId}/mark/${selectedUser._id}`;
+                url = `${API_URL}/api/admin/${adminId}/mark/${selectedUser._id}`;
             }
             await axios.put(url, { comments });
             // Update local state
@@ -86,7 +88,7 @@ const AdminDashboard = () => {
                 <div className="admin-header" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                     <div className="admin-header-left">
                         <div style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', backdropFilter: 'blur(5px)' }}>
-                            <img src="../src/assets/logo.png" alt="Logo" style={{ height: '32px' }} />
+                            <img src="/logo.png" alt="Logo" style={{ height: '32px' }} />
                         </div>
                         <div>
                             <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800', color: 'white' }}>Drone E Care Admin</h1>
