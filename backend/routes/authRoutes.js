@@ -75,9 +75,9 @@ const generateCouponCode = async (name, discount) => {
 // @route   POST /api/auth/register
 // @access  Public
 router.post('/register', async (req, res) => {
-    const { name, email, password, discount, phoneNumber } = req.body;
+    const { name, email, password, discount, phoneNumber, city } = req.body;
 
-    if (!name || !email || !password || !discount || !phoneNumber) {
+    if (!name || !email || !password || !discount || !phoneNumber || !city) {
         return res.status(400).json({ message: 'Please include all fields' });
     }
 
@@ -99,6 +99,7 @@ router.post('/register', async (req, res) => {
         name,
         email,
         phoneNumber,
+        city,
         password: hashedPassword,
         discount: discount, // Store as string
         couponCode,
@@ -145,6 +146,7 @@ router.post('/login', async (req, res) => {
             name: user.name,
             email: user.email,
             phoneNumber: user.phoneNumber,
+            city: user.city,
             couponCode: user.couponCode,
             discount: user.discount,
             expiresAt: user.expiresAt,

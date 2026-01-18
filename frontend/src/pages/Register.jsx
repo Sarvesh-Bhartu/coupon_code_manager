@@ -11,6 +11,7 @@ const Register = () => {
     const [formData, setFormData] = useState({
         name: '',
         phoneNumber: '',
+        city: '',
         email: '',
         password: ''
     });
@@ -34,7 +35,7 @@ const Register = () => {
         return <div className="container text-center text-white mt-10"><h1>Invalid Offer Link</h1></div>;
     }
 
-    const { name, phoneNumber, email, password } = formData;
+    const { name, phoneNumber, city, email, password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -46,6 +47,7 @@ const Register = () => {
             const res = await axios.post(`${API_URL}/api/auth/register`, {
                 name,
                 phoneNumber,
+                city,
                 email,
                 password,
                 discount
@@ -89,6 +91,10 @@ const Register = () => {
                     <div className="input-group">
                         <label>Phone Number</label>
                         <input type="tel" name="phoneNumber" value={phoneNumber} onChange={onChange} required placeholder="Ex: 9876543210" pattern="[0-9]{10}" title="Ten digits code" />
+                    </div>
+                    <div className="input-group">
+                        <label>City</label>
+                        <input type="text" name="city" value={city} onChange={onChange} required placeholder="Ex: Mumbai" />
                     </div>
                     <div className="input-group">
                         <label>Email Address</label>
