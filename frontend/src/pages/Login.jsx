@@ -92,6 +92,10 @@ const Login = () => {
                         </p>
                     </div>
                 </form>
+                <div style={{ marginTop: '2rem', paddingTop: '1rem', borderTop: '1px solid #eee', textAlign: 'center' }}>
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#666' }}>Need Help? Contact Admin</p>
+                    <p style={{ margin: '0.2rem 0 0 0', fontWeight: '800', color: '#fff', fontSize: '1rem' }}>Aniket Dabholkar - +91 7718820048</p>
+                </div>
             </div>
 
         </div>

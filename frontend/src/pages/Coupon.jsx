@@ -141,6 +141,11 @@ const Coupon = () => {
                         </div>
                     </div>
 
+                    <div style={{ marginTop: '2rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
+                        <p style={{ margin: 0, fontSize: '0.85rem', color: '#666' }}>Need Help? Contact Admin</p>
+                        <p style={{ margin: '0.2rem 0 0 0', fontWeight: '800', color: '#fff', fontSize: '1rem' }}>Aniket Dabholkar - +91 7718820048</p>
+                    </div>
+
                     {/* Mobile Buttons (Visible ONLY on Mobile via CSS) */}
                     <div className="action-buttons mobile-only-buttons" style={{ display: 'none', gap: '1rem', marginTop: '2rem' }}>
                         <a href="https://www.droneecareexpert.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', width: '100%' }}>
