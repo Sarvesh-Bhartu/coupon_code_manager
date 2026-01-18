@@ -10,6 +10,7 @@ const Register = () => {
 
     const [formData, setFormData] = useState({
         name: '',
+        phoneNumber: '',
         email: '',
         password: ''
     });
@@ -33,7 +34,7 @@ const Register = () => {
         return <div className="container text-center text-white mt-10"><h1>Invalid Offer Link</h1></div>;
     }
 
-    const { name, email, password } = formData;
+    const { name, phoneNumber, email, password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -44,6 +45,7 @@ const Register = () => {
             const API_URL = import.meta.env.VITE_API_URL;
             const res = await axios.post(`${API_URL}/api/auth/register`, {
                 name,
+                phoneNumber,
                 email,
                 password,
                 discount
@@ -85,6 +87,10 @@ const Register = () => {
                         <input type="text" name="name" value={name} onChange={onChange} required placeholder="Ex: Sarvesh" />
                     </div>
                     <div className="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phoneNumber" value={phoneNumber} onChange={onChange} required placeholder="Ex: 9876543210" pattern="[0-9]{10}" title="Ten digits code" />
+                    </div>
+                    <div className="input-group">
                         <label>Email Address</label>
                         <input type="email" name="email" value={email} onChange={onChange} required placeholder="Ex: user@example.com" />
                     </div>
@@ -93,7 +99,7 @@ const Register = () => {
                         <input type="password" name="password" value={password} onChange={onChange} required placeholder="********" />
                     </div>
 
-                    <button type="submit" className="btn" style={{ marginTop: '1rem' }}>
+                    <button type="submit" className="btn" style={{ marginTop: '2rem', marginBottom: '1rem' }}>
                         Get My Coupon
                     </button>
 
@@ -101,6 +107,10 @@ const Register = () => {
                         Already registered? <span style={{ color: 'var(--color-blue)', cursor: 'pointer', transition: 'color 0.3s' }} className="login-footer-link" onClick={() => navigate('/login')}>Login here</span>
                     </p>
                 </form>
+                <div style={{ marginTop: '2rem', paddingTop: '1rem', borderTop: '1px solid #eee', textAlign: 'center' }}>
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#666' }}>Need Help? Contact Admin</p>
+                    <p style={{ margin: '0.2rem 0 0 0', fontWeight: '800', color: '#fff', fontSize: '1rem' }}>Aniket Dabholkar - +91 7718820048</p>
+                </div>
             </div>
         </div>
     );

@@ -119,6 +119,7 @@ const AdminDashboard = () => {
                         <thead>
                             <tr>
                                 <th style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>USER</th>
+                                <th style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>PHONE</th>
                                 <th style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>EMAIL</th>
                                 <th style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>COUPON CODE</th>
                                 <th style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>EXPIRES ON</th>
@@ -131,6 +132,7 @@ const AdminDashboard = () => {
                             {users.map(user => (
                                 <tr key={user._id} style={{ transition: 'background 0.2s' }} className="hover:bg-white/5">
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{user.name}</td>
+                                    <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>{user.phoneNumber || '-'}</td>
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#888' }}>{user.email}</td>
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', fontFamily: 'monospace', fontSize: '1.1rem', color: 'var(--color-light-purple)' }}>{user.couponCode}</td>
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#666', fontSize: '0.9rem' }}>
