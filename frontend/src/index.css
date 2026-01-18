@@ -404,6 +404,7 @@ input:-webkit-autofill:active {
     text-align: center;
     flex: 1 1 100%;
     order: 1;
+    padding-top: 5rem;
   }
 
   .coupon-card-section {
