@@ -56,8 +56,8 @@ const Coupon = () => {
                         </div>
                     </div>
 
-                    <h1 className="text-gradient coupon-headline">
-                        Repair, Fly,<br />Create.
+                    <h1 className="text-gradient coupon-headline" style={{ paddingBottom: '1rem' }}>
+                        Repair, Fly, Create.
                     </h1>
                     <p className="coupon-subtext">
                         Experience premium drone care with <strong>DroneECareExpert</strong>.
