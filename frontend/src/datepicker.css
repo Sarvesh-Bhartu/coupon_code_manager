@@ -1,0 +1,100 @@
+/* Dark Theme for React Datepicker */
+.react-datepicker-wrapper {
+    display: block;
+}
+
+.react-datepicker-popper {
+    z-index: 100 !important;
+}
+
+.react-datepicker {
+    background-color: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-family: 'Outfit', sans-serif !important;
+    color: #fff !important;
+}
+
+.react-datepicker__header {
+    background-color: #0f0f0f !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+    color: #ccc !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background-color: var(--color-purple, #a855f7) !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.react-datepicker__day--today {
+    border: 1px solid var(--color-purple, #a855f7) !important;
+    background-color: transparent;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.react-datepicker__day--disabled {
+    color: #444 !important;
+}
+
+/* Navigation Arrows */
+.react-datepicker__navigation-icon::before {
+    border-color: #ccc !important;
+}
+
+/* Input Styling Wrapper */
+.custom-datepicker-input {
+    background: #1a1a1a !important;
+    border: 1px solid #444 !important;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+/* Close Icon "x" Styling */
+.react-datepicker__close-icon::after {
+    background-color: transparent !important;
+    /* Remove blue circle */
+    color: #888 !important;
+    /* Make X grey */
+    font-size: 1.2rem !important;
+    content: "x";
+    /* Ensure X character */
+}
+
+.react-datepicker__close-icon {
+    padding-right: 10px;
+    /* Adjust spacing if needed */
+}
+
+.react-datepicker__close-icon:hover::after {
+    color: #fff !important;
+    /* White on hover */
+}

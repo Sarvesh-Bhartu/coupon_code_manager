@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import MarkUsedModal from '../components/MarkUsedModal';
 import AuthContext from '../context/AuthContext';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const AdminDashboard = () => {
     const { adminId } = useParams();
@@ -11,6 +13,7 @@ const AdminDashboard = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [filterDate, setFilterDate] = useState(null); // Changed to null object for DatePicker
 
     // Modal State
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,6 +84,18 @@ const AdminDashboard = () => {
     if (loading) return <div className="text-center mt-10 text-white">Loading...</div>;
     if (error) return <div className="text-center mt-10" style={{ color: 'red' }}><h1>{error}</h1></div>;
 
+    // Filter Logic
+    const filteredUsers = filterDate
+        ? users.filter(user => {
+            const userDate = new Date(user.createdAt).toISOString().split('T')[0];
+            // Format filterDate to YYYY-MM-DD manually to match local time if needed, 
+            // but simplified ISO string comparison usually works if timezones aren't a huge factor.
+            // Better approach for local date comparison:
+            const filterDateString = filterDate.toLocaleDateString('en-CA'); // YYYY-MM-DD
+            return userDate === filterDateString;
+        })
+        : users;
+
     return (
         <div className="login-container" style={{ justifyContent: 'flex-start', paddingTop: '4rem' }}>
             <div className="container" style={{ maxWidth: '1400px', width: '100%', zIndex: 10 }}>
@@ -109,6 +124,27 @@ const AdminDashboard = () => {
                     </div>
                 </div>
 
+                {/* Filter Section */}
+                {/* Filter Section */}
+                <div className="admin-filter-bar">
+                    <div className="admin-filter-left">
+                        <span style={{ color: '#aaa' }}>Filter by Date:</span>
+                        <div style={{ position: 'relative', zIndex: 105 }}> {/* zIndex wrapper */}
+                            <DatePicker
+                                selected={filterDate}
+                                onChange={(date) => setFilterDate(date)}
+                                dateFormat="yyyy-MM-dd"
+                                placeholderText="Select Date"
+                                className="custom-datepicker-input"
+                                isClearable
+                            />
+                        </div>
+                    </div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+                        Total Entries: <span style={{ color: 'var(--color-light-purple)' }}>{filteredUsers.length}</span>
+                    </div>
+                </div>
+
                 <div className="admin-table-wrapper" style={{
                     background: 'rgba(18, 18, 18, 0.4)',
                     backdropFilter: 'blur(10px)',
@@ -130,7 +166,7 @@ const AdminDashboard = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map(user => (
+                            {filteredUsers.map(user => (
                                 <tr key={user._id} style={{ transition: 'background 0.2s' }} className="hover:bg-white/5">
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{user.name}</td>
                                     <td style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#aaa' }}>{user.phoneNumber || '-'}</td>
