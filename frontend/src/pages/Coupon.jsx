@@ -129,7 +129,7 @@ const Coupon = () => {
                     <div style={{ textAlign: 'left', background: 'rgba(255,255,255,0.02)', padding: '1.5rem', borderRadius: '8px', fontSize: '0.9rem' }}>
                         <div style={{ display: 'flex', alignItems: 'start', marginBottom: '0.75rem', color: '#888' }}>
                             <span style={{ minWidth: '24px', color: 'var(--color-purple)' }}>📅</span>
-                            <span>Expires: {new Date(user.expiresAt).toLocaleDateString()}</span>
+                            <span>Coupon Code Valid for 3 months only. Expires on: {new Date(user.expiresAt).toLocaleDateString()}</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'start', marginBottom: '0.75rem', color: '#888' }}>
                             <span style={{ minWidth: '24px', color: 'var(--color-purple)' }}>💳</span>
